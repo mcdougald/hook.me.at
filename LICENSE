@@ -1,21 +1,107 @@
-MIT License
+# me.at Source-Available License, Version 1.0
 
-Copyright (c) 2026 Trevor McDougald
+## Identifier
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+LicenseRef-MeAt-SAL-1.0
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Notice
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2026 Trevor McDougald. All rights reserved.
+
+## Terms and Conditions
+
+### Licensor
+
+Trevor McDougald, the sole owner of the Software and of every right in it not
+expressly granted below.
+
+### The Software
+
+The "Software" is the source code, object code, documentation, and other
+materials in the repository or package that includes this license, in every
+version, together with any modification or derivative of them.
+
+### Ownership
+
+The Software is licensed, not sold. The Licensor retains all right, title, and
+interest in the Software, including all copyrights, patents, trade secrets,
+and trademarks. No right is granted by implication, estoppel, or otherwise.
+
+### Limited Grant: Evaluation
+
+Subject to your continued compliance with these terms, the Licensor grants you
+a personal, non-exclusive, non-transferable, non-sublicensable, revocable
+license to:
+
+1. view and read the Software's source code; and
+
+2. run the Software, unmodified or modified, on hardware you control, solely to
+   evaluate it for a period of no more than thirty (30) days, and never with
+   production data or for the benefit of any third party.
+
+### What Requires a Commercial License
+
+Unless you hold a separate written commercial license signed by the Licensor
+(including a valid me.at product license key issued under it), you may not:
+
+1. use the Software in production, for any internal business purpose beyond
+   the evaluation above, or to process data belonging to anyone other than you;
+
+2. host, self-host, or operate the Software, or make it available to any third
+   party, including as a hosted, managed, or embedded service;
+
+3. copy, distribute, sublicense, sell, lease, or otherwise transfer the
+   Software or any modification or derivative of it;
+
+4. create or distribute any product or service that substitutes for, or offers
+   substantially similar functionality to, the Software or any product or
+   service the Licensor offers using the Software; or
+
+5. use the Software, or any part of it, to train, fine-tune, or evaluate a
+   machine-learning model.
+
+### License Keys and Protections
+
+You may not move, change, disable, or circumvent any license key, entitlement
+check, or usage limit in the Software, and you may not remove or obscure any
+licensing, copyright, or other notice.
+
+### Contributions
+
+The Licensor accepts contributions only under its Contributor Assignment
+Agreement. Any contribution you submit without one confers no right on you
+and no obligation on the Licensor.
+
+### No Conversion
+
+No version of the Software will convert to, or become available under, an
+open-source license by the passage of time. Only a written instrument signed by
+the Licensor can grant rights beyond these terms.
+
+### Termination
+
+These rights end automatically and immediately if you breach any term, and the
+Licensor may revoke them at any time by notice. On termination you must stop
+using the Software and destroy every copy in your possession or control.
+
+### Trademarks
+
+These terms grant no right to use the Licensor's names, trademarks, service
+marks, logos, or product names, including "me.at" and any per-product name.
+
+### Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF FITNESS FOR A PARTICULAR
+PURPOSE, MERCHANTABILITY, TITLE, OR NON-INFRINGEMENT.
+
+IN NO EVENT WILL THE LICENSOR HAVE ANY LIABILITY TO YOU ARISING OUT OF OR
+RELATED TO THE SOFTWARE, INCLUDING INDIRECT, SPECIAL, INCIDENTAL, OR
+CONSEQUENTIAL DAMAGES, EVEN IF INFORMED OF THEIR POSSIBILITY IN ADVANCE.
+
+## Commercial Licensing
+
+For production, self-hosting, or any other right not granted above, contact
+contact@me.at.
+
+(me.at source-available license: not an open-source license.)
