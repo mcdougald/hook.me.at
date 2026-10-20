@@ -1,0 +1,34 @@
+name: gitleaks
+
+on:
+  # Branch-filtered like every other workflow here: an unfiltered `push` scans
+  # each PR branch a second time (once for the push, once for the PR) and scans
+  # tag pushes on top. `main` plus `pull_request` covers every commit exactly once.
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitleaks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    name: Scan for secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          # Full history: a secret is still a secret if it was removed in a later commit.
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

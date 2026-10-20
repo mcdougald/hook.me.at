@@ -1,0 +1,82 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Actually publish to npm (otherwise a dry run)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  detect:
+    name: Detect code
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      has_code: ${{ steps.d.outputs.has_code }}
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Look for an installable workspace
+        id: d
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f package.json ] && [ -f pnpm-lock.yaml ]; then
+            echo "has_code=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_code=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No installable workspace yet — CI jobs skipped."
+          fi
+
+  release:
+    name: Publish ${{ github.event.inputs.publish == 'true' && '(live)' || '(dry run)' }}
+    needs: detect
+    if: needs.detect.outputs.has_code == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      # Required for npm provenance attestation (npm CLI >= 9.5, public repo).
+      id-token: write
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Target package name for hook.me.at: @me-at/<verb>
+          if [ "${{ github.event.inputs.publish }}" = "true" ]; then
+            pnpm publish --access public --provenance --no-git-checks
+          else
+            pnpm publish --access public --provenance --no-git-checks --dry-run
+          fi

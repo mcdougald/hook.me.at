@@ -1,0 +1,36 @@
+name: Stale
+
+on:
+  schedule:
+    - cron: '7 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stale
+  cancel-in-progress: true
+
+jobs:
+  stale:
+    name: Mark and close stale items
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: github.repository_owner == 'mcdougald'
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Sweep
+        uses: actions/stale@v9
+        with:
+          days-before-stale: 60
+          days-before-close: 14
+          exempt-issue-labels: 'security,pinned,roadmap'
+          exempt-pr-labels: 'security,pinned'
+          stale-issue-message: >
+            No activity for 60 days. This is a solo-operated project — closing keeps the
+            tracker honest about what is actually being worked on. Comment to keep it open.
+          stale-pr-message: >
+            No activity for 60 days. Comment or push to keep this open.

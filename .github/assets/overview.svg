@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="302" viewBox="0 0 880 302" role="img" aria-label="hook.me.at at a glance: Signed the standard way, Retries that back off, Every attempt on record, Postgres, no Redis">
+<rect x="0.5" y="0.5" width="879" height="301" rx="12" fill="#ffffff" stroke="#e5e5e5"/>
+<rect x="24" y="24" width="196" height="254" rx="10" fill="#fafafa" stroke="#e5e5e5"/>
+<text x="44" y="60" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#a3a3a3">01</text>
+<line x1="72" y1="56" x2="200" y2="56" stroke="#d4d4d4" stroke-width="1"/>
+<text x="44" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#0a0a0a" font-weight="600"><tspan x="44" dy="0">Signed the</tspan><tspan x="44" dy="22">standard way</tspan></text>
+<text x="44" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525252"><tspan x="44" dy="0">Standard Webhooks</tspan><tspan x="44" dy="21">headers on every</tspan><tspan x="44" dy="21">delivery, and secret</tspan><tspan x="44" dy="21">rotation that keeps</tspan><tspan x="44" dy="21">the old one valid for</tspan><tspan x="44" dy="21">a window.</tspan></text>
+<rect x="236" y="24" width="196" height="254" rx="10" fill="#fafafa" stroke="#e5e5e5"/>
+<text x="256" y="60" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#a3a3a3">02</text>
+<line x1="284" y1="56" x2="412" y2="56" stroke="#d4d4d4" stroke-width="1"/>
+<text x="256" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#0a0a0a" font-weight="600"><tspan x="256" dy="0">Retries that</tspan><tspan x="256" dy="22">back off</tspan></text>
+<text x="256" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525252"><tspan x="256" dy="0">A published retry</tspan><tspan x="256" dy="21">schedule with jitter</tspan><tspan x="256" dy="21">that honours</tspan><tspan x="256" dy="21">Retry-After, and a</tspan><tspan x="256" dy="21">breaker that pauses a</tspan><tspan x="256" dy="21">dead endpoint.</tspan></text>
+<rect x="448" y="24" width="196" height="254" rx="10" fill="#fafafa" stroke="#e5e5e5"/>
+<text x="468" y="60" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#a3a3a3">03</text>
+<line x1="496" y1="56" x2="624" y2="56" stroke="#d4d4d4" stroke-width="1"/>
+<text x="468" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#0a0a0a" font-weight="600"><tspan x="468" dy="0">Every attempt</tspan><tspan x="468" dy="22">on record</tspan></text>
+<text x="468" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525252"><tspan x="468" dy="0">A searchable log of</tspan><tspan x="468" dy="21">each attempt with a</tspan><tspan x="468" dy="21">redacted payload</tspan><tspan x="468" dy="21">copy, kept for a</tspan><tspan x="468" dy="21">stated period, and</tspan><tspan x="468" dy="21">replayable.</tspan></text>
+<rect x="660" y="24" width="196" height="254" rx="10" fill="#fafafa" stroke="#e5e5e5"/>
+<text x="680" y="60" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" fill="#a3a3a3">04</text>
+<line x1="708" y1="56" x2="836" y2="56" stroke="#d4d4d4" stroke-width="1"/>
+<text x="680" y="98" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" fill="#0a0a0a" font-weight="600"><tspan x="680" dy="0">Postgres, no</tspan><tspan x="680" dy="22">Redis</tspan></text>
+<text x="680" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" fill="#525252"><tspan x="680" dy="0">Deliveries wait in</tspan><tspan x="680" dy="21">the database you</tspan><tspan x="680" dy="21">already run, claimed</tspan><tspan x="680" dy="21">with row locks, so a</tspan><tspan x="680" dy="21">self-hosted install</tspan><tspan x="680" dy="21">needs no Redis.</tspan></text>
+</svg>

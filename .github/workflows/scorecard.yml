@@ -1,0 +1,50 @@
+# OSSF Scorecard.
+#
+# NOTE: `Pinned-Dependencies` will report findings — this fleet pins actions to
+# major tags, not commit SHAs, on purpose. The fleet is one repo per listed
+# registry row (`deriveFleetSpecs()` over `ME_AT_NETWORK`, not a fixed number),
+# so SHA-pinning this workflow set would turn every upstream action bump into a
+# re-render and a commit in every one of them. The finding is accepted and
+# documented, not overlooked.
+name: Scorecard
+
+on:
+  branch_protection_rule:
+  schedule:
+    - cron: '19 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scorecard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analysis:
+    name: Scorecard analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.repository_owner == 'mcdougald'
+    permissions:
+      contents: read
+      security-events: write
+      id-token: write
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Run analysis
+        uses: ossf/scorecard-action@v2
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: false
+
+      - name: Upload to code scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif

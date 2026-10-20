@@ -1,0 +1,61 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '41 4 * * 2'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  detect:
+    name: Detect code
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    outputs:
+      has_code: ${{ steps.d.outputs.has_code }}
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Look for an installable workspace
+        id: d
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f package.json ] && [ -f pnpm-lock.yaml ]; then
+            echo "has_code=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_code=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No installable workspace yet — CI jobs skipped."
+          fi
+
+  analyze:
+    name: Analyze
+    needs: detect
+    if: needs.detect.outputs.has_code == 'true' && github.repository_owner == 'mcdougald'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+          queries: security-and-quality
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v3
